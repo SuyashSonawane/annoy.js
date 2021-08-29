@@ -1,0 +1,23 @@
+{
+  "name": "annoy.js",
+  "version": "1.0.0",
+  "description": "\"# annoy.js\"",
+  "main": "index.js",
+  "scripts": {
+    "test": "parcel ./docs/index.html"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SuyashSonawane/annoy.js.git"
+  },
+  "author": "suyashsonawane",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/SuyashSonawane/annoy.js/issues"
+  },
+  "homepage": "https://github.com/SuyashSonawane/annoy.js#readme",
+  "dependencies": {},
+  "devDependencies": {
+    "parcel": "^2.0.0-rc.0"
+  }
+}

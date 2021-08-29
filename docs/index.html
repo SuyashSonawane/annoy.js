@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test</title>
+    <style>
+        body,
+        html {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            height: 100%;
+            width: 100%;
+        }
+
+        #ball {
+            z-index: 99;
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            background: red;
+        }
+
+        .div {
+            transform-origin: top left;
+            width: 100px;
+            height: 100px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: palegoldenrod;
+            text-align: center;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+
+<body>
+    <div id="ball"></div>
+    <div class="div fun" id="1">
+        <b>
+            Click Me 1
+        </b>
+    </div>
+    <br>
+    <!-- <div class="div fun" id="2">
+        <b>
+            Click Me 2
+        </b>
+    </div> -->
+</body>
+<script src="./index.js" type="module"></script>
+
+</html>
