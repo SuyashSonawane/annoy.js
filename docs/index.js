@@ -1,9 +1,9 @@
 import Annoy from '../src'
-let elements = document.getElementsByClassName("fun")
-let a = new Annoy(elements, 2)
-a.startAnnoying()
-a.setDebugMode(true)
-// setTimeout(() => {
+// let elements = document.getElementsByClassName("fun")
+// let a = new Annoy(elements, 7)
+// a.startAnnoying()
+// a.setDebugMode(true, 10)
+// // setTimeout(() => {
 
-//     a.stopIt()
-// }, 1000);
+// //     a.stopIt()
+// // }, 1000);

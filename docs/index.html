@@ -5,58 +5,35 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Test</title>
-    <style>
-        body,
-        html {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            flex-direction: column;
-            height: 100%;
-            width: 100%;
-        }
-
-        #ball {
-            z-index: 99;
-            position: absolute;
-            width: 10px;
-            height: 10px;
-            background: red;
-        }
-
-        .div {
-            transform-origin: top left;
-            width: 100px;
-            height: 100px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            background-color: palegoldenrod;
-            text-align: center;
-            cursor: pointer;
-        }
-    </style>
+    <title>Annoy.js</title>
+    <link rel="stylesheet" href="./css/main.css">
 </head>
 
-
 <body>
-    <div class="div fun" id="1">
-        <b>
-            Click Me 1
-        </b>
-    </div>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <div class="div fun" id="2">
-        <b>
-            Click Me 2
-        </b>
+    <div class="container">
+        <nav>
+            <div id="logo">
+                <img src="./assets/logo.png" alt="logo">
+            </div>
+            <h2>
+                Annoy.js
+            </h2>
+            <div class="nav-items">
+                <ul>
+                    <li>
+                        Home
+                    </li>
+                    <li>
+                        Docs
+                    </li>
+                </ul>
+            </div>
+        </nav>
+        <div class="more-info">
+            <div class="btn">
+                Get More Info
+            </div>
+        </div>
     </div>
 </body>
 <script src="./index.js" type="module"></script>
