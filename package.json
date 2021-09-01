@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "parcel ./pages/index.html",
     "prebuild":"node ./scripts/fix.js 1",
-    "build": "parcel build ./pages/index.html --public-url /",
+    "build": "parcel build ./pages/index.html --public-url /annoy.js",
     "postbuild":"node ./scripts/fix.js 2",
     "gh-deploy": "gh-pages-deploy"
   },
