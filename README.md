@@ -4,7 +4,7 @@
 <div style="width:50%">
 </div>
 <br/>
-This is fun library to add some over-interactivity to your website. Still in development 🔨
+This is a fun library to add some over-interactivity to your website. Still in development 🔨
 </center>    
 
 ### Demo
