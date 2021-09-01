@@ -1,8 +1,7 @@
 # Annoy.js
 <center>
-<div style="background:white;width:50%">
-<img src="assets/logo.png"/>
-<b style="color:black">Annoy.js</b>
+<img src="assets/logo.jpg"/>
+<div style="width:50%">
 </div>
 <br/>
 This is fun library to add some over-interactivity to your website. Still in development 🔨
