@@ -1,13 +1,13 @@
 import { DataPoint } from './types';
-
+import { getRandomInRange } from './utils'
 class Annoy {
-    private dataset: HTMLCollection;
-    private itemMap: Map<HTMLElement, DataPoint> = new Map();
     private radius: number = 5;
-    private debugAnimationSpeed: number = 2;
     private strength: number = 5;
-    private debugMode: boolean = false;
     private cursorDiv: HTMLElement;
+    private dataset: HTMLCollection;
+    private debugMode: boolean = false;
+    private debugAnimationSpeed: number = 2;
+    private itemMap: Map<HTMLElement, DataPoint> = new Map();
 
     constructor(elements: HTMLCollection, radius: number = 5) {
         // TODO add checks for elements

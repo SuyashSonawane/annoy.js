@@ -8,10 +8,18 @@
     user-select: none;
 }
 
+a {
+    text-decoration: none;
+    color: initial;
+}
+
 html,
 body {
     height: 100%;
+    background-color: white;
 }
+
+
 
 .container {
     height: 100%;
@@ -33,20 +41,52 @@ nav {
 }
 
 nav ul {
-
     list-style: none;
     display: flex;
 }
 
+
 nav ul li {
-    margin: 10px;
+    padding: 20px;
+}
+
+
+.nav-item::before {
+    transform: scaleX(0);
+    transform-origin: bottom right;
+}
+
+.nav-item:hover {
+    color: azure;
+}
+
+
+.nav-item:hover::before {
+    transform: scaleX(1);
+    transform-origin: bottom left;
+}
+
+.nav-item::before {
+    content: " ";
+    display: block;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    inset: 0 0 0 0;
+    background: black;
+    z-index: -1;
+    transition: transform .3s ease;
+
 }
 
 .more-info {
     display: flex;
-    justify-content: center;
     align-items: center;
-    height: 50%;
+    height: 100%;
+    padding: 0 5%;
+    flex-direction: column;
 }
 
 .btn {
@@ -56,6 +96,11 @@ nav ul li {
     text-align: center;
     cursor: pointer;
     font-size: 2rem;
-    background-color: black;
-    color: white;
+    /* background-color: black; */
+    /* color: white; */
+    z-index: 5;
+}
+
+.btn:hover {
+    border: 0.2px solid black;
 }

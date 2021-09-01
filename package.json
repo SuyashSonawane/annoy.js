@@ -4,8 +4,8 @@
   "description": "\"# annoy.js\"",
   "main": "index.js",
   "scripts": {
-    "dev": "parcel ./docs/index.html",
-    "build": "parcel build ./docs/index.html",
+    "dev": "parcel ./pages/index.html",
+    "build": "parcel build ./pages/index.html",
     "gh-deploy": "gh-pages-deploy"
   },
   "repository": {
@@ -20,11 +20,7 @@
   "homepage": "https://github.com/SuyashSonawane/annoy.js#readme",
   "dependencies": {},
   "devDependencies": {
-    "gh-pages-deploy": "^0.5.1",
     "parcel-bundler": "^1.12.5",
     "typescript": "^4.4.2"
-  },
-  "gh-pages-deploy": {
-    "staticpath": "dist"
   }
 }
