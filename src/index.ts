@@ -5,7 +5,7 @@ class Annoy {
     private itemMap: Map<HTMLElement, DataPoint> = new Map();
     private radius: number = 5;
     private debugAnimationSpeed: number = 2;
-    private strength: number = 1;
+    private strength: number = 5;
     private debugMode: boolean = false;
     private cursorDiv: HTMLElement;
 
@@ -21,14 +21,16 @@ class Annoy {
                 el: el,
                 className: el.className,
                 id: el.id,
-                x: elX,
-                y: elY
+                x: 0,
+                y: 0
             };
 
             this.itemMap.set(el, dataPoint)
         }
     }
     private generateDebugItems(animationSpeed: number) {
+        const style = document.createElement('style')
+        document.getElementsByTagName('head')[0].appendChild(style)
         this.cursorDiv = document.createElement('div')
         this.cursorDiv.style.border = '0.2px solid green'
         this.cursorDiv.style.width = `${this.radius * 20 * 2}px`
@@ -36,8 +38,7 @@ class Annoy {
         this.cursorDiv.style.borderRadius = '100%'
         this.cursorDiv.style.position = "absolute"
         this.cursorDiv.id = "cursorDiv"
-
-        document.styleSheets[0].insertRule(`
+        document.styleSheets[document.styleSheets.length - 1].insertRule(`
             @keyframes cursorDivAnimation {
             0% {
                 transform: scale(0.95);
@@ -104,15 +105,14 @@ class Annoy {
                         forceY = this.strength
                     }
                 }
-                console.log(elX, elY)
                 forceX += this.itemMap.get(el).x
                 forceY += this.itemMap.get(el).y
 
                 this.itemMap.get(el).x = forceX
                 this.itemMap.get(el).y = forceY
-                // el.style.transform = `translate(${forceX}px, ${forceY}px)`
-                el.style.top = `${forceX}px`
-                el.style.left = `${forceY}px`
+                el.style.transform = `translate(${forceX}px, ${forceY}px)`
+                // el.style.top = `${forceX}px`
+                // el.style.left = `${forceY}px`
 
             }
         }
