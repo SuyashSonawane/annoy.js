@@ -1,8 +1,9 @@
 import { DataPoint } from './types';
-import { getRandomInRange } from './utils'
+import allEffects from './effects'
+import { Effects } from './interfaces';
 class Annoy {
+    private effect: Effects;
     private radius: number = 5;
-    private strength: number = 5;
     private cursorDiv: HTMLElement;
     private dataset: HTMLCollection;
     private debugMode: boolean = false;
@@ -22,7 +23,8 @@ class Annoy {
                 className: el.className,
                 id: el.id,
                 x: 0,
-                y: 0
+                y: 0,
+                active: false
             };
 
             this.itemMap.set(el, dataPoint)
@@ -81,53 +83,39 @@ class Annoy {
                 if (this.debugMode)
                     el.style.border = "2px solid black"
 
-                let forceX: number, forceY: number;
-
-                if (mouseX > elX) {
-                    if (mouseY > elY) {
-                        forceX = -this.strength
-                        forceY = -this.strength
-                    }
-                    else {
-
-                        forceX = -this.strength
-                        forceY = this.strength
-                    }
+                if (!this.itemMap.get(el).active) {
+                    this.itemMap.get(el).active = true
+                    this.effect.actionDetected({ el, elX, elY, mouseX, mouseY })
                 }
-                else {
-                    if (mouseY > elY) {
-                        forceX = this.strength
-                        forceY = -this.strength
-                    }
-                    else {
 
-                        forceX = this.strength
-                        forceY = this.strength
-                    }
-                }
-                forceX += this.itemMap.get(el).x
-                forceY += this.itemMap.get(el).y
+                this.effect.actionTime({ el, elX, elY, mouseX, mouseY })
 
-                this.itemMap.get(el).x = forceX
-                this.itemMap.get(el).y = forceY
-                el.style.transform = `translate(${forceX}px, ${forceY}px)`
-                // el.style.top = `${forceX}px`
-                // el.style.left = `${forceY}px`
-
+            }
+            else if (this.itemMap.get(el).active) {
+                this.itemMap.get(el).active = false
+                this.effect.dispose({ el, elX, elY, mouseX, mouseY })
             }
         }
     }
-    startAnnoying() {
+    startAnnoying(effect: Effects) {
+        this.effect = effect
         document.addEventListener('mousemove', this.act, true)
     }
     stopIt() {
+        this.setDebugMode(false);
         document.removeEventListener('mousemove', this.act, true)
     }
     setDebugMode(status: boolean, animationSpeed: number = 2) {
         this.debugMode = status
         this.debugAnimationSpeed = animationSpeed
+
+        if (this.debugMode === false) {
+            if (this.cursorDiv)
+                this.cursorDiv.remove()
+            this.cursorDiv = null
+        }
     }
 
 }
 
-module.exports = Annoy
+export { Annoy, allEffects }

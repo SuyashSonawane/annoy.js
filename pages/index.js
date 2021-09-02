@@ -1,7 +1,7 @@
-import Annoy from '../src/index'
+import { Annoy, allEffects } from '../src/index'
 let elements = document.getElementsByClassName("fun")
 let a = new Annoy(elements, 7)
-a.startAnnoying()
+a.startAnnoying(new allEffects.moveAround())
 let f = true;
 const toggle = () => {
     if (f) {
@@ -20,9 +20,3 @@ const toggle = () => {
 }
 
 document.getElementById('action').addEventListener('click', toggle)
-
-// a.setDebugMode(true, 3)
-// setTimeout(() => {
-
-//     a.stopIt()
-// }, 1000);
