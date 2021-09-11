@@ -1,8 +1,8 @@
 import { FunctionDataPoint } from "../types";
 
-interface Effects {
+interface Effect {
     actionDetected(data: FunctionDataPoint): void,
     actionTime(data: FunctionDataPoint): void,
-    dispose(data: FunctionDataPoint): void,
+    dispose(data: FunctionDataPoint): void
 }
-export { Effects }
+export { Effect }

@@ -1,13 +1,12 @@
-import { Effects } from '../interfaces';
+import { Effect } from '../interfaces';
 import { FunctionDataPoint } from '../types';
 
-class MoveAround implements Effects {
+class MoveAround implements Effect {
     private x = 0;
     private y = 0;
     constructor(private strength: number = 5) { }
-    actionDetected(data: FunctionDataPoint): void {
-        // console.log('action detected')
-    }
+
+    actionDetected(data: FunctionDataPoint): void { }
     actionTime({ el, mouseX, mouseY, elX, elY }: FunctionDataPoint): void {
         let forceX: number, forceY: number;
         if (mouseX > elX) {
@@ -38,14 +37,10 @@ class MoveAround implements Effects {
         this.x = forceX
         this.y = forceY
         el.style.transform = `translate(${forceX}px, ${forceY}px)`
-        el.style.top = `${forceX}px`
-        el.style.left = `${forceY}px`
     }
     dispose(data: FunctionDataPoint): void {
-        console.log('action disposed')
+        data.el.style.transform = `none`
     }
-
-
 
 }
 

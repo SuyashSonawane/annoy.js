@@ -1,14 +1,18 @@
 {
-  "name": "annoy.js",
-  "version": "1.0.0",
-  "description": "\"# annoy.js\"",
-  "main": "index.js",
+  "name": "ss-annoy.js",
+  "description": "This is a fun library to add some over-interactivity to your website. Still in development 🔨",
+  "version": "1.0.3",
+  "keywords": [
+    "annoy",
+    "annoy.js",
+    "ss-annoy"
+  ],
+  "main": "src/index.ts",
   "scripts": {
     "dev": "parcel ./pages/index.html",
-    "prebuild":"node ./scripts/fix.js 1",
+    "prebuild": "node ./scripts/fix.js 1",
     "build": "parcel build ./pages/index.html --public-url /annoy.js",
-    "postbuild":"node ./scripts/fix.js 2",
-    "gh-deploy": "gh-pages-deploy"
+    "postbuild": "node ./scripts/fix.js 2"
   },
   "repository": {
     "type": "git",
@@ -20,7 +24,9 @@
     "url": "https://github.com/SuyashSonawane/annoy.js/issues"
   },
   "homepage": "https://github.com/SuyashSonawane/annoy.js#readme",
-  "dependencies": {},
+  "dependencies": {
+    "html-to-image": "^1.7.0"
+  },
   "devDependencies": {
     "parcel-bundler": "^1.12.5",
     "typescript": "^4.4.2"

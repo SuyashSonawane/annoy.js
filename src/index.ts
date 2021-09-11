@@ -1,8 +1,9 @@
 import { DataPoint } from './types';
-import allEffects from './effects'
-import { Effects } from './interfaces';
+import effects from './effects'
+import { Effect } from './interfaces';
+import "./utils/main.css"
 class Annoy {
-    private effect: Effects;
+    private effect: Effect;
     private radius: number = 5;
     private cursorDiv: HTMLElement;
     private dataset: HTMLCollection;
@@ -39,30 +40,13 @@ class Annoy {
         this.cursorDiv.style.height = `${this.radius * 20 * 2}px`
         this.cursorDiv.style.borderRadius = '100%'
         this.cursorDiv.style.position = "absolute"
+        this.cursorDiv.style.pointerEvents = "none"
         this.cursorDiv.id = "cursorDiv"
-        document.styleSheets[document.styleSheets.length - 1].insertRule(`
-            @keyframes cursorDivAnimation {
-            0% {
-                transform: scale(0.95);
-                box-shadow: 0 0 0 100px rgba(18, 173, 44, 0.472) inset;
-            }
-
-            70% {
-                transform: scale(1);
-                box-shadow: 0 0 0 0 rgba(0, 0, 0, 0) inset;
-            }
-
-            100% {
-                transform: scale(0.95);
-                box-shadow: 0 0 0 0 rgba(0, 0, 0, 0) inset;
-            }
-        }
-        `)
 
         this.cursorDiv.style.animation = `cursorDivAnimation ease-out ${(4 - animationSpeed) * 0.75}s infinite`
         document.body.append(this.cursorDiv)
     }
-    private act = (event: MouseEvent) => {
+    private act = async (event: MouseEvent) => {
         if (this.debugMode) {
             if (this.cursorDiv === undefined) {
                 this.generateDebugItems(this.debugAnimationSpeed)
@@ -82,26 +66,25 @@ class Annoy {
             if (dist - this.radius * 20 < 0) {
                 if (this.debugMode)
                     el.style.border = "2px solid black"
-
                 if (!this.itemMap.get(el).active) {
                     this.itemMap.get(el).active = true
-                    this.effect.actionDetected({ el, elX, elY, mouseX, mouseY })
+                    await this.effect.actionDetected({ el, elX, elY, mouseX, mouseY })
                 }
 
-                this.effect.actionTime({ el, elX, elY, mouseX, mouseY })
+                await this.effect.actionTime({ el, elX, elY, mouseX, mouseY })
 
             }
             else if (this.itemMap.get(el).active) {
                 this.itemMap.get(el).active = false
-                this.effect.dispose({ el, elX, elY, mouseX, mouseY })
+                await this.effect.dispose({ el, elX, elY, mouseX, mouseY })
             }
         }
     }
-    startAnnoying(effect: Effects) {
+    startAnnoying(effect: Effect) {
         this.effect = effect
         document.addEventListener('mousemove', this.act, true)
     }
-    stopIt() {
+    async stopIt() {
         this.setDebugMode(false);
         document.removeEventListener('mousemove', this.act, true)
     }
@@ -118,4 +101,4 @@ class Annoy {
 
 }
 
-export { Annoy, allEffects }
+export { Annoy, effects }
