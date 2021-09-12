@@ -1,18 +1,20 @@
 {
   "name": "ss-annoy.js",
   "description": "This is a fun library to add some over-interactivity to your website. Still in development 🔨",
-  "version": "1.0.3",
+  "version": "1.0.6",
   "keywords": [
     "annoy",
     "annoy.js",
     "ss-annoy"
   ],
-  "main": "src/index.ts",
+  "main": "lib/index.js",
   "scripts": {
     "dev": "parcel ./pages/index.html",
     "prebuild": "node ./scripts/fix.js 1",
     "build": "parcel build ./pages/index.html --public-url /annoy.js",
-    "postbuild": "node ./scripts/fix.js 2"
+    "postbuild": "node ./scripts/fix.js 2",
+    "packagebuild": "tsc",
+    "postpackagebuild": "node ./scripts/fix.js 3"
   },
   "repository": {
     "type": "git",
@@ -28,7 +30,11 @@
     "html-to-image": "^1.7.0"
   },
   "devDependencies": {
+    "@types/node": "^16.9.1",
     "parcel-bundler": "^1.12.5",
     "typescript": "^4.4.2"
-  }
+  },
+  "browserslist": [
+  "since 2017-06"
+  ] 
 }

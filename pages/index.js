@@ -1,6 +1,5 @@
-import { Annoy, effects } from '../src/index'
+import { Annoy, effects } from '../lib/index'
 let elements = document.getElementsByClassName("fun")
-
 let selectEffects = document.getElementById('effects')
 
 let vEffects = Object.keys(effects)

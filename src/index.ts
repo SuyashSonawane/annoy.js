@@ -1,7 +1,7 @@
 import { DataPoint } from './types';
 import effects from './effects'
 import { Effect } from './interfaces';
-import "./utils/main.css"
+import "./css/main.css"
 class Annoy {
     private effect: Effect;
     private radius: number = 5;

@@ -13,6 +13,12 @@ if (option) {
         case '2':
             fs.renameSync('dist', 'docs')
             break
+        case '3':
+            fs.mkdir("lib/css", () => {
+                console.log("created directory")
+                fs.copyFileSync("src/css/main.css", "lib/css/main.css")
+            })
+            break
     }
 }
 else {
