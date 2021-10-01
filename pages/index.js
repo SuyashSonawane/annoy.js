@@ -1,4 +1,4 @@
-import { Annoy, effects } from '../lib/index'
+import { Annoy, effects } from '../src/index'
 let elements = document.getElementsByClassName("fun")
 let selectEffects = document.getElementById('effects')
 
@@ -30,22 +30,8 @@ selectEffects.addEventListener('change', (e) => {
 
 startShow(0)
 
+document.getElementById('debugMode').addEventListener('click', (e) => {
+    if (ann)
+        ann.setDebugMode(e.target.checked)
 
-// let f = true;
-// const toggle = () => {
-//     if (f) {
-//         document.body.style.cursor = "none"
-//         document.getElementById('action').style.cursor = "none"
-//         document.getElementsByTagName('html')[0].style.filter = "invert(1) hue-rotate(180deg)"
-//     }
-//     else {
-
-//         document.getElementById('action').style.cursor = "pointer"
-//         document.body.style.cursor = "default"
-//         document.getElementsByTagName('html')[0].style.filter = "none"
-//     }
-
-//     f = !f
-// }
-
-// document.getElementById('action').addEventListener('click', toggle)
+})
