@@ -6,3 +6,4 @@ scripts/
 assets/
 docs/
 src/
+tsconfig.json

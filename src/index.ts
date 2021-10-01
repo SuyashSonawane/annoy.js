@@ -95,7 +95,7 @@ class Annoy {
         if (this.debugMode === false) {
             if (this.cursorDiv)
                 this.cursorDiv.remove()
-            this.cursorDiv = null
+            this.cursorDiv = undefined
         }
     }
 
