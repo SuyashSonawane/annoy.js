@@ -26,5 +26,16 @@ Pull requests are welcome. For major changes, please open an issue first to disc
 
 Please make sure to update tests as appropriate.
 
+Move around, explore the project, and you can contact me if you...
+
+1. ...have some valuable inputs to share
+2. ...want to work on it
+3. ...find any bug
+4. ...want to share a feedback on the work
+5. ...etc.
+
+Send me a mail at [suyashsonawane005@gmail.com](mailto:suyashsonawane005@gmail.com) or [create a new Issue](https://github.com/suyashsonawane/annoy.js/issues/new) on this repository.
+You can also contact me through my [LinkedIn Profile](https://www.linkedin.com/in/suyashysonawane/).
+
 ## License
 [MIT](https://choosealicense.com/licenses/mit/)
