@@ -1,3 +1,6 @@
+// Types for internal use
+
+// DataPoint type to represent the Element along with some properties
 export type DataPoint = {
     el: Element,
     x: number,
@@ -7,6 +10,7 @@ export type DataPoint = {
     active: boolean
 }
 
+// FunctionDataPoint type to represent the HTML element along with some properties
 export type FunctionDataPoint = {
     el: HTMLElement,
     elX: number,

@@ -1,7 +1,9 @@
-import { DataPoint } from './types';
-import effects from './effects'
+import "./css/main.css";
+import effects from './effects';
 import { Effect } from './interfaces';
-import "./css/main.css"
+import { DataPoint } from './types';
+
+/** Class representing Annoy.js. */
 class Annoy {
     private effect: Effect;
     private radius: number = 5;
@@ -11,6 +13,11 @@ class Annoy {
     private debugAnimationSpeed: number = 2;
     private itemMap: Map<HTMLElement, DataPoint> = new Map();
 
+    /**
+     * Constructor for Annoy Class
+     * @param  {HTMLCollection} elements
+     * @param  {number=5} radius
+     */
     constructor(elements: HTMLCollection, radius: number = 5) {
         // TODO add checks for elements
         this.radius = radius;
@@ -31,6 +38,10 @@ class Annoy {
             this.itemMap.set(el, dataPoint)
         }
     }
+    /**
+     * Generate debug items, used internally
+     * @param  {number} animationSpeed
+     */
     private generateDebugItems(animationSpeed: number) {
         const style = document.createElement('style')
         document.getElementsByTagName('head')[0].appendChild(style)
@@ -46,6 +57,13 @@ class Annoy {
         this.cursorDiv.style.animation = `cursorDivAnimation ease-out ${(4 - animationSpeed) * 0.75}s infinite`
         document.body.append(this.cursorDiv)
     }
+
+
+
+    /**
+     * Perform action, main framework of the library
+     * @param  {MouseEvent} event
+     */
     private act = async (event: MouseEvent) => {
         if (this.debugMode) {
             if (this.cursorDiv === undefined) {
@@ -80,14 +98,31 @@ class Annoy {
             }
         }
     }
+
+
+    /**
+     * Starts the library
+     * @param  {Effect} effect
+     */
     startAnnoying(effect: Effect) {
         this.effect = effect
         document.addEventListener('mousemove', this.act, true)
     }
+
+    /**
+    * Stops the actions
+    */
     async stopIt() {
         this.setDebugMode(false);
         document.removeEventListener('mousemove', this.act, true)
     }
+
+
+    /**
+     * Function to set the debug mode along with animation speed 
+     * @param  {boolean} status
+     * @param  {number=2} animationSpeed
+     */
     setDebugMode(status: boolean, animationSpeed: number = 2) {
         this.debugMode = status
         this.debugAnimationSpeed = animationSpeed
@@ -101,4 +136,4 @@ class Annoy {
 
 }
 
-export { Annoy, effects }
+export { Annoy, effects };
