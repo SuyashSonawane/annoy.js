@@ -18,7 +18,7 @@ coming soon ..
 ## Usage
 
 ```python
-coming soon ...
+coming soon ....
 ```
 
 ## Contributing
