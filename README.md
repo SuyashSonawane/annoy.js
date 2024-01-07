@@ -1,14 +1,17 @@
 # Annoy.js
+
 <center>
 <img src="assets/logo.jpg"/>
 <div style="width:50%">
 </div>
 <br/>
-This is a fun library to add some over-interactivity to your website. Still in development 🔨
-</center>    
+This is a fun library to add some over-interactivity to your website. Still in development 🔨 Test
+</center>
 
 ### Demo
+
 [https://suyashsonawane.me/annoy.js/](https://suyashsonawane.me/annoy.js/)
+
 ## Installation
 
 ```bash
@@ -22,6 +25,7 @@ coming soon ....
 ```
 
 ## Contributing
+
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
 
 Please make sure to update tests as appropriate.
@@ -38,4 +42,5 @@ Send me a mail at [suyashsonawane005@gmail.com](mailto:suyashsonawane005@gmail.c
 You can also contact me through my [LinkedIn Profile](https://www.linkedin.com/in/suyashysonawane/).
 
 ## License
+
 [MIT](https://choosealicense.com/licenses/mit/)
